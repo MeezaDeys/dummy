@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+    <div class="login-panel panel panel-default">
+      <div class="panel-heading text-center">EKO-PoPS Wallet Details</div>
+      <div class="panel-body">
+        <form [formGroup]="mnemonicForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <textarea class="form-control" formControlName="mnemonic" placeholder="Enter Mneumonic" cols="40" rows="5"></textarea>
+            </div>
+            <button type="submit" class="center-block btn btn-primary">Submit</button>
+            <br/>
+          </fieldset>
+        </form>        
+        <div class=" text-center"><b>Or</b></div>
+        <span class=" text-center">
+          <h4><b>Create New EKO-PoPS Account</b></h4>
+        </span>
+        <button type="submit" (click)="createMnemonic()" class="center-block btn btn-primary" data-toggle="modal" data-target="#myModal">Create</button>          
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Your mnemonic key:</h4>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control"  value="{{mnemonic}}" cols="40" rows="5" #inputTarget></textarea>
+        <br/>
+        <button class = "alignleft btn btn-secondary" [ngxClipboard]="inputTarget">Copy from Textbox</button>
+        <button class = "alignright btn btn-secondary" data-dismiss="modal">I've copied it somewhere safe</button>        
+        <br><br>
+        <small class="text-danger">We advise you print or write down your mnemonic passprase, if lost you will loose access to your account.
+            Please pick one or more methods to back up your passphrase listed below.</small>
+      </div>            
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

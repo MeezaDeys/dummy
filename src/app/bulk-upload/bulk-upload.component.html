@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>DegreeOnBlockchain > CredentialsBulkUpload</h2>  
+  <form [formGroup] = "bulkUploadForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-5">      
+        <div class="jumbotron">        
+          <label><h2>Upload CSV files:</h2></label><br/>
+          <label class="btn btn-default">
+            Browse <input type="file" (change)="onFileChange($event)" accept=".csv" hidden>
+          </label><br/>
+          <label class="text-warning">
+            <br/>*(Max number of rows 50)
+          </label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="jumbotron">
+            <label><h2>Upload Images:</h2></label><br/>
+          <label class="btn btn-default">
+            Browse <input type="file" formControlName="imgFile" accept="image/png, image/jpeg" hidden>
+          </label><br/>
+          <label class="text-warning">
+            <br/>*(Max number of images 50 & size:500kb/img)
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-lg btn-primary">Upload</button>
+    </div>
+  </form>      
+</div>
+  
